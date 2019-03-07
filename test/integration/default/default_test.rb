@@ -18,6 +18,7 @@ end
 
 describe service "heartbeat" do
   it { should be_enabled }
+  it { should be_running }
 end
 
 # This is an example test, replace it with your own test.

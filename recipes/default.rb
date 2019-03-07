@@ -14,9 +14,15 @@ dpkg_package "heartbeat" do
   action :install
 end
 
-package "heartbeat" do
-  action :upgrade
+service "heartbeat" do
+  action :enable
 end
+
+bash "heartbeat_start" do
+  code "sudo /etc/init.d/heartbeat start"
+end
+
+
 
 
 #
