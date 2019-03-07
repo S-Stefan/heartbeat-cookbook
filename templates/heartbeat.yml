@@ -92,7 +92,7 @@ heartbeat.monitors:
 
 #----------------------------- Logstash output --------------------------------
 output.logstash:
-  hosts: ["12.0.2.0:5044"]
+  hosts: ["12.0.2.10:5044"]
 
 # output.console:
 #   pretty: true

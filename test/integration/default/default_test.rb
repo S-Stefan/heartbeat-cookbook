@@ -25,6 +25,11 @@ describe file('/etc/heartbeat/heartbeat.yml') do
   its(:content) { should match /eng22.spartaglobal.education:80/ }
 end
 
+# describe file('/etc/heartbeat/heartbeat.yml') do
+#   it { should be_symlink }
+# end
+
+
 # This is an example test, replace it with your own test.
 describe port(80), :skip do
   it { should_not be_listening }

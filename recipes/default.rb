@@ -14,10 +14,18 @@ dpkg_package "heartbeat" do
   action :install
 end
 
+file '/etc/heartbeat/heartbeat.yml' do
+  action :delete
+end
+
 template "/etc/heartbeat/heartbeat.yml" do
-  source "heartbeat.yml.erb"
+  source "heartbeat.yml"
   notifies :restart, "service[heartbeat]"
 end
+
+# link "/etc/heartbeat/heartbeat.yml" do
+#   to "heartbeat.yml"
+# end
 
 service "heartbeat" do
   action :enable
@@ -26,6 +34,13 @@ end
 bash "heartbeat_start" do
   code "sudo /etc/init.d/heartbeat start"
 end
+
+service "heartbeat" do
+  action :start
+end
+
+
+
 
 
 
