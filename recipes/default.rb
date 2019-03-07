@@ -14,6 +14,11 @@ dpkg_package "heartbeat" do
   action :install
 end
 
+template "/etc/heartbeat/heartbeat.yml" do
+  source "heartbeat.yml.erb"
+  notifies :restart, "service[heartbeat]"
+end
+
 service "heartbeat" do
   action :enable
 end

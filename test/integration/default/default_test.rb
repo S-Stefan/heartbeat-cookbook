@@ -21,6 +21,10 @@ describe service "heartbeat" do
   it { should be_running }
 end
 
+describe file('/etc/heartbeat/heartbeat.yml') do
+  its(:content) { should match /eng22.spartaglobal.education:80/ }
+end
+
 # This is an example test, replace it with your own test.
 describe port(80), :skip do
   it { should_not be_listening }
